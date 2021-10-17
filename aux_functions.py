@@ -13,7 +13,8 @@ def create_synthetic_data(n_dim: int, N_vectors: int, k_clusters: int, max_range
     max_range  --> the maximum range of each artificial centroid coordinate
 
     OUTput:
-    data --> list of vectors to which we will apply k-means
+    data      --> list of vectors to which we will apply k-means
+    centroids --> list containing artificial centroids from each synthetic data is created
     """
     # sample the random centroids from uniform PDF from -max_range to max_range
     centroids = [max_range * (2 * np.random.random((n_dim,)) - 1) for _ in range (k_clusters)]
@@ -28,7 +29,7 @@ def create_synthetic_data(n_dim: int, N_vectors: int, k_clusters: int, max_range
         
         data.append(vector)
 
-    return data
+    return data, centroids
 
 def create_init_centroids(data: list, k_clusters: int) -> list:
     """This function returns initial random centroids in the appropiate range for better 
