@@ -1,5 +1,7 @@
 import numpy as np
 
+from parameters_INput import N_vectors
+
 def partition_vectors(data: list, centroids: list) -> list:
     """This function assigns each vector of the data to a centroid.
     
@@ -36,4 +38,40 @@ def partition_vectors(data: list, centroids: list) -> list:
     
     return group_list
 
+def calculate_new_centroids(group_list: list, data: list, k_clusters: int) -> list:
+    """
+    
+    """
+    # extracts the number of vectors
+    N_vectors = len(group_list)
+    # extracts dimension of data
+    n_dim = len(data[0])
+    # list with centroids as numpy arrays 
+    centroids = []
+
+    # loop to calculate k_clusters NEW centroids
+    for k in range(k_clusters):
+        # initialize new centroid to zero
+        centroid = np.zeros(n_dim)
+        # counts how many vectors belong to the kth centroid
+        counter = 0
+
+        # iterates over all data to check which points belongs to kth cluster
+        for i in range(N_vectors):
+
+            # if belongs to the kth cluster, then it sums to the average
+            if group_list[i] == k:
+                centroid += data[i]
+                counter += 1
+
+        # if there is vectors belonging to the kth cluster, then the centroid is their average
+        if counter != 0:
+            centroid = centroid / counter
+        # it avoids problems in convergence
+        else:
+            centroid = data[np.random.randint(N_vectors)]
+
+        centroids.append(centroid)
+
+    return centroids
 
