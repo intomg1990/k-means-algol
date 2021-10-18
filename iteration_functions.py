@@ -1,7 +1,5 @@
 import numpy as np
 
-from parameters_INput import N_vectors
-
 def partition_vectors(data: list, centroids: list) -> list:
     """This function assigns each vector of the data to a centroid.
     
@@ -40,7 +38,16 @@ def partition_vectors(data: list, centroids: list) -> list:
 
 def calculate_new_centroids(group_list: list, data: list, k_clusters: int) -> list:
     """
+    Calculates new centroids making n-dimensional averages of the data points that belong 
+    to old centroids.
+
+    INput:
+    group_list --> a list that maps the vector i to the cluster j
+    data       --> list of vectors (data points) to which we will apply k-means
+    k_cluster  --> the number of clusters
     
+    OUTput:
+    centroids  --> new centroids calculated from the vectors assigned to old centroids
     """
     # extracts the number of vectors
     N_vectors = len(group_list)

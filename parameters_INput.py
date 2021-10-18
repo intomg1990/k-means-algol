@@ -1,4 +1,10 @@
+# the dimension of the vectors/data points
 n_dim      = 2
+# the number of vectors synthetically generated
 N_vectors  = 1024
-k_clusters = 3
+# from how many clusters the synthetic data is generated
+k_clusters_synth = 3
+# how many clusters the algol should try to find 
+k_clusters = 2
+# the max range for the PDF that is sampled for the generator centroids
 max_range  = 12
