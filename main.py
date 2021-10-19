@@ -1,7 +1,7 @@
 """This programs was written to better understand k-means algorithms.
-It generates synthetic data from k_clusters_synth random normal PDFs
-and initializes random centroids. From there it iterates minimizing J_cost
-to clusterize the data into k_clusters """
+It generates synthetic data from `k_clusters_synth` random normal PDFs
+and initializes random centroids. From there it iterates minimizing J cost
+to clusterize the data into `k_clusters`."""
 
 ###########################################
 ### Import Packages, Modules and Inputs ###
@@ -40,7 +40,7 @@ stop = False
 while(stop == False):
     # partition vectors into clusters
     group_list = partition_vectors(data, centroids)
-    # new centroid is calculated
+    # new centroids are calculated
     new_centroids = calculate_new_centroids(group_list, data, k_clusters)
 
     # check for convergence
@@ -53,7 +53,7 @@ while(stop == False):
 ### Plotting Results ###
 ########################
 
-# stack centroid and data vector to plot it
+# stack centroids and data vectors to plot them
 X = np.vstack(data[:])
 GC = np.vstack(generator_centroids[:])
 C = np.vstack(centroids[:])
@@ -64,7 +64,7 @@ plt.plot(GC[:, 0], GC[:, 1], "kx", label="Generetor centroids")
 # units of axes
 plt.xlabel(r"$x_{(1)}$")
 plt.ylabel(r"$x_{(2)}$")
-# renders in plot legend 
+# renders in-plot legend 
 plt.legend()
 # from RAM to screen
 plt.show()

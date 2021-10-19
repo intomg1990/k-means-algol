@@ -1,7 +1,7 @@
 import numpy as np
 
 def partition_vectors(data: list, centroids: list) -> list:
-    """This function assigns each vector of the data to a centroid.
+    """This function assigns each vector of the data to the nearest centroid.
     
     INput:
     data      --> list of vectors (data points) to which we will apply k-means

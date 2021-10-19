@@ -1,12 +1,10 @@
 import numpy as np
 
-from parameters_INput import N_vectors
-
 def create_synthetic_data(n_dim: int, N_vectors: int, k_clusters: int, max_range: int) -> list:
     """
     Make synthetic data to apply k-means algol. Create random vectors distributed normally
-    around artificial centroids. The artificial centroids have coordinates ranging from 
-    -max_range to max_range.
+    around artificial centroids. The artificial centroids have random coordinates ranging 
+    from -max_range to max_range.
     
     INput:
     n_dim      --> the dimension of the synthetic vectors
